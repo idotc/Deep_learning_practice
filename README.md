@@ -21,6 +21,10 @@
 2.7 SABlock (self-attention block)
 > 
 2.8 ShufflenetBlock
+> 
+2.9 SqueezeBlock
+> 
+2.10 CBAMBlock
 
 ## 3、Normalition算法实现
 > 
