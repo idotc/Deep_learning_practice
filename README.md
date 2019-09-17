@@ -38,5 +38,12 @@
 ## 4、h5tojson
 >
 将h5的groundtruth标注文件转为json的格式
+## 5、Evaluation method
+>
+机器学习用到的一些评价以及损失函数方法，手写实现
+> 
+5.1 IOU
+> 
+5.2 AUC
 
 
