@@ -42,3 +42,27 @@ def softmax_loss_naive(W, X, y, reg):
   
 
   return loss, dW
+ 
+ def softmax_loss_vectorized(W, X, y, reg):
+  """
+  无循环的实现
+  """
+  
+  loss = 0.0
+  dW = np.zeros_like(W)
+  num_classes = W.shape[1]
+  num_train = X.shape[0]
+  
+  scores=np.dot(X,W)
+  shift_scores=scores-np.max(scores,axis=1).reshape(-1,1)
+  softmax_output = np.exp(shift_scores)/np.sum(np.exp(shift_scores), axis = 1).reshape(-1,1)
+  loss=np.sum(-np.log(softmax_output[range(num_train),y]))
+  loss=loss/num_train+reg * np.sum(W * W)
+  
+  dW=softmax_output.copy()
+  dW[range(num_train),y]-=1
+  dW=np.dot(X.T,dW)
+  dW = dW/num_train + 2*reg* W 
+
+
+  return loss, dW
